@@ -118,11 +118,11 @@ void printTree( TreeNodePtr treePtr, int level )
       if (level == 1)
          printf("%3d\n",treePtr->data);
       else if (level == 2)
-         printf("      %3d\n",treePtr->data);
+         printf("     %3d\n",treePtr->data);
       else if (level == 3)
-         printf("         %3d\n",treePtr->data);
+         printf("        %3d\n",treePtr->data);
       else if (level == 4)
-         printf("             %3d\n",treePtr->data);
+         printf("            %3d\n",treePtr->data);
       
       printTree( treePtr->leftPtr, level ); //Recursion to the left
 
