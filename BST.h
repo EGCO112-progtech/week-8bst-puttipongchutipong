@@ -116,13 +116,13 @@ void printTree( TreeNodePtr treePtr, int level )
       // if (level == 0)
       //    printf("%3d\n",treePtr->data);
       if (level == 1)
-         printf(" %3d\n",treePtr->data);
+         printf("%3s%3d\n", "",treePtr->data);
       else if (level == 2)
-         printf("    %3d\n",treePtr->data);
+         printf("%6s%3d\n", "",treePtr->data);
       else if (level == 3)
-         printf("       %3d\n",treePtr->data);
+         printf("%9s%3d\n", "",treePtr->data);
       else if (level == 4)
-         printf("          %3d\n",treePtr->data);
+         printf("%12s%3d\n", "",treePtr->data);
       
       printTree( treePtr->leftPtr, level ); //Recursion to the left
 
