@@ -48,23 +48,23 @@ void insertNode( BST *b, int value ){
 while(!inserted){
    if(t->data >=value){
      /* move/insert to the left*/
-    
+      if(t->leftPtr == NULL) {
+          t->leftPtr = new_node;
+          inserted = 1;
+       } else t = t->leftPtr;
      }
-  	 
-  }
-   else{
-	      /* move/ insert to the right*/
-    
+     else {
+	   /* move/ insert to the right*/
+      if(t->rightPtr == NULL) {
+         t->rightPtr = new_node;
+         inserted = 1;
+         } else t = t->rightPtr;
+      }
     }
-	}
-   
-  }//end while		
-  }//end else;
-  b->size++;
-  }
-  
-}//end function
-
+   }
+ }
+   b->size++;
+}
 
 void inOrder( TreeNodePtr treePtr )
 { 
@@ -78,3 +78,53 @@ void inOrder( TreeNodePtr treePtr )
       inOrder( treePtr->rightPtr ); //Recursion to the right
    } // end if                          
 } // end 
+
+void preOrder( TreeNodePtr treePtr )
+{ 
+   // if tree is not empty, then traverse
+   if ( treePtr != NULL ) {        
+        
+      printf("%3d",treePtr->data) ;  //print the value 
+      
+      preOrder( treePtr->leftPtr ); //Recursion to the left
+   
+      preOrder( treePtr->rightPtr ); //Recursion to the right
+   } // end if                          
+} // end 
+
+void postOrder( TreeNodePtr treePtr )
+{ 
+   // if tree is not empty, then traverse
+   if ( treePtr != NULL ) {        
+        
+      postOrder( treePtr->leftPtr ); //Recursion to the left
+      
+      postOrder( treePtr->rightPtr ); //Recursion to the right
+      
+      printf("%3d",treePtr->data) ;  //print the value
+      
+   } // end if                          
+} // end 
+
+void printTree( TreeNodePtr treePtr, int level )
+{
+   // if tree is not empty, then traverse
+   if ( treePtr != NULL ) {        
+      level++;
+      printTree( treePtr->rightPtr, level ); //Recursion to the right
+
+      // if (level == 0)
+      //    printf("%3d\n",treePtr->data);
+      if (level == 1)
+         printf("%3d\n",treePtr->data);
+      else if (level == 2)
+         printf("      %3d\n",treePtr->data);
+      else if (level == 3)
+         printf("         %3d\n",treePtr->data);
+      else if (level == 4)
+         printf("             %3d\n",treePtr->data);
+      
+      printTree( treePtr->leftPtr, level ); //Recursion to the left
+
+   } // end if                          
+}
